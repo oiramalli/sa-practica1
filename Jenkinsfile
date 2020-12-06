@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                ng build --prod
+                sh 'ng build --prod'
             }
         }
         stage('Test') {
