@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sa-practica1"
+    }
+  },
+  "defaultProject": "sa-practica1",
+  "cli": {
+    "analytics": false
+  }
 }
