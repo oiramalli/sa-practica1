@@ -5,13 +5,13 @@ pipeline {
         stage('Install') {
             steps {
                 echo 'Installing...'
-                sh 'npm i'
+                npm i
             }
         }
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'ng build --prod'
+                ng build --prod
             }
         }
         stage('Test') {
