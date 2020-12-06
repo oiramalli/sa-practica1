@@ -1,14 +1,29 @@
+#!/usr/bin/env groovy
 pipeline {
-    agent {
-        docker {
-            image 'node:6-alpine' 
-            args '-p 4200:4200' 
-        }
-    }
+    agent any
     stages {
-        stage('Build') { 
+        stage('Install') {
             steps {
-                sh 'npm install' 
+                echo 'Installing...'
+                npm i
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                ng build --prod
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                ng test
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Testing...'
+                // sh 'npm test'
             }
         }
     }
