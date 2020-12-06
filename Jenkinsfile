@@ -17,7 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                ng test
+                ng test --watch=false --browsers=ChromeHeadless
             }
         }
         stage('Deploy') {
