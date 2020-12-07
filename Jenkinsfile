@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh 'ng serve --port=80 --host=0.0.0.0 &'
+                sh 'pm2 start "ng serve --host 0.0.0.0 --port 80"'
             }
         }
     }
