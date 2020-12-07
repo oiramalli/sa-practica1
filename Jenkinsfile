@@ -8,22 +8,22 @@ pipeline {
                 sh 'npm i'
             }
         }
-        stage('Build') {
-            steps {
-                echo 'Building...'
-                sh 'ng build --prod'
-            }
-        }
         stage('Test') {
             steps {
                 echo 'Testing...'
                 sh 'ng test --watch=false --browsers=ChromeHeadless'
             }
         }
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                sh 'ng build --prod'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                // sh 'npm test'
+                sh 'ng serve --port=80 --host=0.0.0.0 &'
             }
         }
     }
