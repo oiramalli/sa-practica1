@@ -30,7 +30,7 @@ pipeline {
         stage('Puppet') {
             steps {
                 echo 'Puppet...'
-                sh 'ssh mario@puppet-agent.mjalvarado.com "sudo runuser -l root -c 'puppet agent --test'"'
+                sh 'ssh mario@puppet-agent.mjalvarado.com "sudo runuser -l root -c \'puppet agent --test\'"'
             }
         }
     }
