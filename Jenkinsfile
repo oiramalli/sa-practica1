@@ -23,14 +23,15 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh 'scp -r ~/workspace/SA_P1/dist/sa-practica1 mario@puppet-agent.mjalvarado.com:~/'
-                sh 'ssh mario@puppet-agent.mjalvarado.com "sudo cp -r ~/sa-practica1/. /var/www/html"'
+                /* groovylint-disable-next-line LineLength */
+                sh 'scp -r ~/workspace/SA_P1/dist/sa-practica1/. root@chef-ws.mjalvarado.com:~/chef-repo/cookbooks/cookbook_p3/files/default/dist'
             }
         }
-        stage('Puppet') {
+        stage('Cheff') {
             steps {
-                echo 'Puppet...'
-                sh 'ssh mario@puppet-agent.mjalvarado.com "sudo runuser -l root -c \'puppet agent --test\'"'
+                echo 'Cheff...'
+                /* groovylint-disable-next-line LineLength */
+                sh 'ssh root@chef-ws.mjalvarado.com "knife ssh \'name:chef-node-01\' \'sudo chef-client\' -x mario -P CheffP@ss"'
             }
         }
     }
