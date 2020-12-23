@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 /* groovylint-disable-next-line LineLength */
-                sh 'scp ~/workspace/SA_P1/dist/sa-practica1/* root@chef-ws.mjalvarado.com:~/chef-repo/cookbooks/cookbook_p3/files/default/dist'
+                sh 'scp -r ~/workspace/SA_P1/dist/sa-practica1/* root@chef-ws.mjalvarado.com:~/chef-repo/cookbooks/cookbook_p3/files/default/dist'
             }
         }
         stage('Cheff') {
