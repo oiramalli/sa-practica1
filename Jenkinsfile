@@ -31,6 +31,8 @@ pipeline {
             steps {
                 echo 'Cheff...'
                 /* groovylint-disable-next-line LineLength */
+                sh 'ssh root@chef-ws.mjalvarado.com " knife cookbook upload cookbook_p3 --cookbook-path=/root/chef-repo/cookbooks"'
+                /* groovylint-disable-next-line LineLength */
                 sh 'ssh root@chef-ws.mjalvarado.com "knife ssh \'name:chef-node-01\' \'sudo chef-client\' -x mario -P CheffP@ss"'
             }
         }
